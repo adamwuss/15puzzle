@@ -41,8 +41,8 @@
     <div class="mt-3">
       <ol>
         <li
-          v-for="result in sortedResults"
-          :key="result.id"
+          v-for="(result, i) in sortedResults"
+          :key="i"
         >
           {{ result.name }}: {{ result.time }}
         </li>
@@ -83,7 +83,7 @@ export default {
         if (JSON.stringify(this.actualConfiguration) === JSON.stringify(SOLUTION)) {
           this.stop();
           const name = window.prompt('Congratulation! You solve the puzzle! Name:') || 'User';
-          this.results.push({ name, time: this.time, id: this.results.length });
+          this.results.push({ name, time: this.time });
         }
       }
     },
