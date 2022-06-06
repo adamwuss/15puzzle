@@ -82,7 +82,7 @@ export default {
 
         if (JSON.stringify(this.actualConfiguration) === JSON.stringify(SOLUTION)) {
           this.stop();
-          const name = window.prompt('Congratulation! You solve the puzzle! Name:');
+          const name = window.prompt('Congratulation! You solve the puzzle! Name:') || 'User';
           this.results.push({ name, time: this.time, id: this.results.length });
         }
       }
