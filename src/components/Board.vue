@@ -63,7 +63,6 @@ export default {
     time: '00:00:00.000',
     running: false,
     timeBegan: null,
-    stoppedDuration: null,
     started: null,
   }),
   mounted() {
@@ -142,13 +141,12 @@ export default {
     reset() {
       this.running = false;
       clearInterval(this.started);
-      this.stoppedDuration = 0;
       this.timeBegan = null;
       this.time = "00:00:00.000";
     },
     clockRunning() {
       const currentTime = new Date()
-      const timeElapsed = new Date(currentTime - this.timeBegan - this.stoppedDuration)
+      const timeElapsed = new Date(currentTime - this.timeBegan)
       const hour = timeElapsed.getUTCHours()
       const min = timeElapsed.getUTCMinutes()
       const sec = timeElapsed.getUTCSeconds()
