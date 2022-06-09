@@ -44,7 +44,13 @@
           v-for="(result, i) in sortedResults"
           :key="i"
         >
-          {{ result.name }}: {{ result.time }}
+          {{ result.name }}: {{ result.time }} Moves: {{ result.moves }}
+        </li>
+        <li
+          v-for="n in 10 - sortedResults.length"
+          :key="n"
+        >
+          -
         </li>
       </ol>
     </div>
@@ -82,7 +88,7 @@ export default {
         if (JSON.stringify(this.actualConfiguration) === JSON.stringify(SOLUTION)) {
           this.stop();
           const name = window.prompt('Congratulation! You solve the puzzle! Name:') || 'User';
-          this.results.push({ name, time: this.time });
+          this.results.push({ name, time: this.time, moves: this.moves });
         }
       }
     },
